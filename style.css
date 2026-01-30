@@ -1,305 +1,97 @@
-/* * FEDERAL HISTORY ARCHIVE - STYLESHEET v3.0 
- * Design System: Luxury Academic / Financial Modern
- */
-
-/* 1. RESET & FUNDAMENTALS */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* DESIGN SYSTEM */
 :root {
-    /* Color Palette */
     --gold: #d4af37;
-    --gold-light: #f1d592;
-    --deep-green: #1b4d3e; /* Cor do dólar clássico */
-    --pure-black: #050505;
-    --soft-white: #f8f8f8;
+    --pure-black: #0a0a0a;
+    --soft-white: #f4f4f4;
     --dark-grey: #1a1a1a;
-    --text-main: #333333;
-    --text-muted: #666666;
-    
-    /* Layout Variables */
-    --nav-height: 80px;
-    --container-width: 1200px;
-    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Tema Escuro - Ativado via Classe no Body */
 body.dark-theme {
     --soft-white: #0a0a0a;
-    --text-main: #e0e0e0;
-    --text-muted: #aaaaaa;
-    --dark-grey: #ffffff;
+    --pure-black: #f4f4f4;
+    background-color: #000;
+    color: #fff;
 }
 
-html {
-    scroll-behavior: smooth;
+*, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--soft-white);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden; /* Impede quebra lateral */
+    color: #333;
+    overflow-x: hidden;
 }
 
-h1, h2, h3, .cinzel {
-    font-family: 'Cinzel', serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 2. PRELOADER */
+/* PRELOADER */
 #preloader {
-    position: fixed;
-    inset: 0;
-    background: var(--pure-black);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
+    position: fixed; inset: 0; background: #000;
+    z-index: 10000; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; color: var(--gold);
 }
 
 .dollar-spinner {
-    font-size: 4rem;
-    color: var(--gold);
-    animation: rotateDollar 2s infinite linear;
-    margin-bottom: 20px;
+    font-size: 5rem; animation: flip 2s infinite;
 }
 
-@keyframes rotateDollar {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
+@keyframes flip {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
 }
 
-/* 3. HEADER & NAVIGATION */
+/* HEADER */
 #site-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    background: rgba(0,0,0,0.9); height: 80px;
+    display: flex; align-items: center;
 }
 
-.top-bar {
-    background: var(--gold);
-    color: var(--pure-black);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 5px 0;
+#progress-bar {
+    position: absolute; bottom: 0; left: 0; height: 3px;
+    background: var(--gold); width: 0%;
 }
 
-.nav-wrapper {
-    height: var(--nav-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 
-.main-logo {
-    font-size: 1.5rem;
-    color: var(--soft-white);
-}
+.main-logo { color: #fff; font-family: 'Cinzel'; font-size: 1.5rem; }
+.main-logo span { color: var(--gold); }
 
-.main-logo span {
-    color: var(--gold);
-    font-weight: 400;
-    margin-left: 5px;
-}
+.nav-list { display: flex; list-style: none; gap: 20px; align-items: center; }
+.nav-link { color: #fff; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; }
 
-.nav-list {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--soft-white);
-    font-size: 0.85rem;
-    font-weight: 400;
-    transition: var(--transition-smooth);
-}
-
-.nav-link:hover {
-    color: var(--gold);
-}
-
-/* 4. HERO SECTION */
+/* HERO */
 .hero-section {
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    background: url('https://images.unsplash.com/photo-1502920513543-d0382b67598c?auto=format&fit=crop&q=80') center/cover no-repeat;
-    position: relative;
+    height: 100vh; display: flex; align-items: center;
+    background: url('https://images.unsplash.com/photo-1502920513543-d0382b67598c?auto=format&fit=crop&q=80') center/cover;
+    position: relative; color: #fff;
 }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
-}
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); }
+.hero-container { position: relative; z-index: 2; }
 
-.hero-container {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-text-content h2 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: var(--gold);
-}
-
-/* 5. CONTENT BLOCKS */
-.section-padding {
-    padding: 100px 0;
-}
-
-.section-header {
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.step-num {
-    display: block;
-    color: var(--gold);
-    font-weight: 900;
-    font-size: 1.2rem;
-}
-
-.grid-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.grid-content.inverted {
-    direction: rtl;
-}
-
-.grid-content.inverted > * {
-    direction: ltr;
-}
-
-/* 6. COMPONENTS */
-.stat-card {
-    background: var(--dark-grey);
-    padding: 40px;
-    text-align: center;
-    border-top: 3px solid var(--gold);
-    transition: var(--transition-smooth);
-}
-
-.stat-card:hover {
-    transform: translateY(-10px);
-}
-
-.stat-value {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 30px 0;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.data-table th, .data-table td {
-    padding: 20px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-.data-table th {
-    background: var(--gold);
-    color: var(--pure-black);
-}
-
-.curio-masonry {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.curio-card {
-    background: white;
-    padding: 30px;
-    border-left: 5px solid var(--gold);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-}
-
-/* 7. FOOTER */
-#site-footer {
-    background: var(--pure-black);
-    color: white;
-    padding: 80px 0 30px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 100px;
-    margin-bottom: 50px;
-}
-
-/* 8. BUTTONS */
 .btn-gold {
-    background: var(--gold);
-    color: var(--pure-black);
-    border: none;
-    padding: 12px 25px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition-smooth);
+    background: var(--gold); border: none; padding: 10px 20px;
+    font-weight: bold; cursor: pointer; transition: var(--transition);
 }
 
-.btn-gold:hover {
-    background: var(--white);
-    transform: scale(1.05);
+.btn-gold:hover { transform: scale(1.05); background: #fff; }
+
+/* SECTIONS */
+.section-padding { padding: 100px 0; }
+.grid-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+.stat-card {
+    background: #222; padding: 40px; border-radius: 8px;
+    text-align: center; border-bottom: 4px solid var(--gold);
 }
 
-/* 9. RESPONSIVIDADE */
-@media (max-width: 992px) {
-    .grid-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-list {
-        display: none; /* Seria substituído por um menu hambúrguer no JS */
-    }
-}
+.stat-value { font-size: 3rem; font-weight: bold; color: var(--gold); display: block; }
 
-/* 10. REVEAL ANIMATIONS */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 768px) {
+    .grid-content { grid-template-columns: 1fr; }
+    .nav-list { display: none; }
 }

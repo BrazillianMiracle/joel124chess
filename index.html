@@ -3,238 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>U.S. Dollar Archive | A Enciclopédia da Moeda Global</title>
-    <meta name="description" content="Explore a trajetória exaustiva do dólar americano. Do Coinage Act de 1792 à era digital. Dados técnicos, história e segurança.">
-    <meta name="keywords" content="Dólar, Federal Reserve, Economia, História Monetária, Bretton Woods, Investimentos">
-    <meta name="author" content="Federal History Project">
-    
-    <meta property="og:title" content="U.S. Dollar Archive | História e Poder">
-    <meta property="og:description" content="A jornada completa da moeda que governa a economia global.">
-    <meta property="og:type" content="website">
-
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/25/25228.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <style>
-        :root { --gold: #d4af37; --dark: #0a0a0a; --white: #ffffff; }
-        body.loading { overflow: hidden; }
-        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 9999; display: flex; justify-content: center; align-items: center; color: var(--gold); font-family: 'Cinzel', serif; }
-    </style>
+    <title>Federal History Archive | U.S. Dollar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="loading">
 
-<body id="top" class="loading">
-
-    <div id="preloader" role="status" aria-label="Carregando conteúdo">
-        <div class="loader-content">
-            <div class="dollar-spinner">$</div>
-            <p>Sincronizando Reservas Federais...</p>
-        </div>
+    <div id="preloader">
+        <div class="dollar-spinner">$</div>
+        <p>CARREGANDO ARQUIVOS FEDERAIS...</p>
     </div>
 
-    <div id="progress-container"><div id="progress-bar"></div></div>
-
     <header id="site-header">
-        <div class="top-bar">
-            <div class="container flex-row">
-                <span class="ticker">ESTADO DO MERCADO: <span class="status-online">USD ATIVO</span></span>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="LinkedIn">IN</a>
-                </div>
-            </div>
-        </div>
-        
-        <nav class="main-navigation" role="navigation">
-            <div class="container nav-wrapper">
-                <div class="logo-area">
-                    <a href="#top" class="logo-link">
-                        <h1 class="main-logo">U.S. DOLLAR<span>ARCHIVE</span></h1>
-                    </a>
-                </div>
-                
+        <div id="progress-bar"></div>
+        <div class="container nav-wrapper">
+            <h1 class="main-logo">FEDERAL<span>HISTORY</span></h1>
+            <nav>
                 <ul class="nav-list">
-                    <li class="nav-item has-submenu">
-                        <a href="#era-colonial" class="nav-link">História</a>
-                        <ul class="submenu">
-                            <li><a href="#era-colonial">Era Colonial</a></li>
-                            <li><a href="#coinage-act">Lei de 1792</a></li>
-                            <li><a href="#guerra-civil">Guerra Civil</a></li>
-                            <li><a href="#fed-creation">Criação do FED</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="#design-seguranca" class="nav-link">Segurança</a></li>
-                    <li class="nav-item"><a href="#curiosidades-20" class="nav-link">Fatos</a></li>
-                    <li class="nav-item"><a href="#panorama-global" class="nav-link">Digital</a></li>
-                    <li class="nav-item"><a href="#faq-secao" class="nav-link">FAQ</a></li>
+                    <li><a href="#historia" class="nav-link">História</a></li>
+                    <li><a href="#estatisticas" class="nav-link">Estatísticas</a></li>
+                    <li><button id="btn-theme" class="btn-gold">MODO ESCURO</button></li>
                 </ul>
-
-                <div class="cta-area">
-                    <button class="btn-gold" id="btn-theme" title="Alternar Modo de Cor">MODO ESCURO</button>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <main id="main-content">
-        <section class="hero-section" id="hero">
+    <main>
+        <section class="hero-section">
             <div class="hero-overlay"></div>
             <div class="container hero-container">
                 <div class="hero-text-content">
-                    <h2 class="reveal">A Moeda que Governa o Mundo</h2>
-                    <p class="reveal-delayed">Uma análise técnica e histórica sobre a hegemonia, o design e o futuro do Dólar Americano.</p>
-                    <div class="hero-actions">
-                        <a href="#era-colonial" class="btn-main">Explorar Arquivo</a>
-                        <a href="#design-seguranca" class="btn-secondary">Dados de Segurança</a>
-                    </div>
+                    <span class="step-num">ESTABELECIDO EM 1792</span>
+                    <h2>A Moeda que MUDOU o Mundo</h2>
+                    <p>Explore a trajetória do Dólar Americano, do padrão-ouro à era digital.</p>
                 </div>
             </div>
         </section>
 
-        <section id="era-colonial" class="content-block section-padding">
+        <section id="historia" class="section-padding container">
+            <div class="grid-content">
+                <div class="content-block">
+                    <h3 class="cinzel">O Padrão Ouro</h3>
+                    <p>Durante décadas, cada nota de dólar era garantida por ouro físico nos cofres do Tesouro. Este sistema trouxe uma estabilidade sem precedentes até 1971.</p>
+                </div>
+                <div class="content-block">
+                    <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=800" alt="Barras de Ouro" style="width:100%; border-radius: 8px;">
+                </div>
+            </div>
+        </section>
+
+        <section id="estatisticas" class="section-padding" style="background: #111; color: white;">
             <div class="container">
                 <div class="section-header">
-                    <span class="step-num">01</span>
-                    <h2>A Gênese Colonial (1600 - 1775)</h2>
+                    <h2 class="cinzel" style="color: var(--gold);">Impacto Global</h2>
                 </div>
-                <div class="grid-content">
-                    <div class="text-column">
-                        <h3>O Vácuo Monetário</h3>
-                        <p>Antes da independência, as Treze Colônias viviam em um caos monetário. Sem autorização real para cunhar ouro ou prata, o comércio dependia do escambo e de moedas estrangeiras. O <strong>Dólar Espanhol</strong> tornou-se a unidade mais confiável devido à sua pureza de prata.</p>
-                        
-                        <div class="info-box">
-                            <h4>Nota Histórica: Wampum e Tabaco</h4>
-                            <p>Em Massachusetts e Virgínia, na falta de metal, conchas polidas (Wampum) e folhas de tabaco eram aceitas como pagamento de impostos, demonstrando a resiliência econômica dos colonos.</p>
-                        </div>
-                    </div>
-                    <div class="image-column">
-                        <figure class="reveal-right">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Continental_Currency_20_Dollars_1775.jpg" alt="Nota Continental de 20 Dólares de 1775">
-                            <figcaption>A "Continental Currency" falhou devido à hiperinflação, mas plantou a semente da unificação.</figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="coinage-act" class="content-block dark-bg section-padding">
-            <div class="container">
-                <div class="full-width-text centered">
-                    <h2>1792: O Nascimento do Padrão Decimal</h2>
-                    <p>O <strong>Coinage Act</strong> estabeleceu a primeira Casa da Moeda (U.S. Mint) e definiu o Dólar como unidade base. Foi um dos primeiros sistemas monetários do mundo a adotar a base decimal pura, uma ideia defendida ferrenhamente por Thomas Jefferson.</p>
-                    
-                    <div class="stats-grid-complex">
-                        <div class="stat-card">
-                            <span class="stat-value">371.25</span>
-                            <span class="stat-label">Grãos de Prata Pura</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-value">15:1</span>
-                            <span class="stat-label">Razão Prata/Ouro</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-value">1792</span>
-                            <span class="stat-label">Ano de Fundação</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="guerra-civil" class="content-block section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <span class="step-num">02</span>
-                    <h2>A Ascensão dos Greenbacks (1861)</h2>
-                </div>
-                <div class="grid-content inverted">
-                    <div class="text-column">
-                        <p>A Guerra de Secessão exigiu financiamento massivo. O governo Lincoln emitiu os "Demand Notes", as primeiras notas de circulação nacional sem lastro metálico imediato. O apelido <strong>Greenback</strong> surgiu devido à tinta verde usada no verso para dificultar a falsificação fotográfica da época.</p>
-                        
-                        <table class="data-table reveal-bottom">
-                            <thead>
-                                <tr>
-                                    <th>Ano</th>
-                                    <th>Emissão</th>
-                                    <th>Poder de Compra</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1861</td><td>$60 Milhões</td><td>95%</td></tr>
-                                <tr><td>1863</td><td>$450 Milhões</td><td>45%</td></tr>
-                                <tr><td>1865</td><td>Pós-Guerra</td><td>52%</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="design-seguranca" class="content-block gold-accent section-padding">
-            <div class="container">
-                <h2 class="centered">Engenharia Anti-Falsificação</h2>
-                <div class="tech-specs-grid">
-                    <article class="spec-item">
-                        <div class="icon-box">🛡️</div>
-                        <h3>Papel de Tecido</h3>
-                        <p>Composto por 75% algodão e 25% linho, com fibras sintéticas vermelhas e azuis visíveis apenas sob inspeção detalhada.</p>
-                    </article>
-                    <article class="spec-item">
-                        <div class="icon-box">🔍</div>
-                        <h3>Fio de Polímero</h3>
-                        <p>Cada denominação possui um fio que brilha em cores diferentes sob luz UV (Laranja para $10, Rosa para $100).</p>
-                    </article>
-                    <article class="spec-item">
-                        <div class="icon-box">🎨</div>
-                        <h3>Tinta OVI</h3>
-                        <p>Tinta opticamente variável que muda de cor ao inclinar a nota, passando de cobre para verde.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="curiosidades-20" class="content-block section-padding bg-light">
-            <div class="container">
-                <h2 class="centered">Fatos e Curiosidades</h2>
                 <div class="curio-masonry">
-                    <div class="curio-card">
-                        <span class="curio-num">01</span>
-                        <p>A nota de $100 é a mais circulada fora dos EUA, servindo como reserva de valor global.</p>
+                    <div class="stat-card">
+                        <span class="stat-value">88</span>
+                        <p>Das transações globais usam USD</p>
                     </div>
-                    <div class="curio-card">
-                        <span class="curio-num">02</span>
-                        <p>Nenhuma pessoa viva pode ser retratada em notas de dólar, por lei federal.</p>
+                    <div class="stat-card">
+                        <span class="stat-value">100</span>
+                        <p>Anos de dominância econômica</p>
                     </div>
-                    <div class="curio-card">
-                        <span class="curio-num">03</span>
-                        <p>O Federal Reserve de NY guarda mais de 6 mil toneladas de ouro em seu cofre subterrâneo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="panorama-global" class="content-block section-padding">
-            <div class="container centered">
-                <h2>O Futuro: Dólar Digital (CBDC)</h2>
-                <p class="max-width-p">O FED estuda atualmente a implementação do Dólar Digital para combater a volatilidade das criptomoedas e manter a eficiência nos pagamentos transfronteiriços.</p>
-                
-            </div>
-        </section>
-
-        <section id="faq-secao" class="content-block section-padding bg-dark text-light">
-            <div class="container">
-                <h2 class="centered">FAQ Econômico</h2>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header">Por que o dólar é a moeda de reserva?</button>
-                        <div class="accordion-content">
-                            <p>Devido à estabilidade das instituições americanas e à liquidez sem paralelos do mercado de títulos do Tesouro (Treasuries).</p>
-                        </div>
+                    <div class="stat-card">
+                        <span class="stat-value">2.3</span>
+                        <p>Trilhões em circulação (T)</p>
                     </div>
                 </div>
             </div>
@@ -242,24 +76,11 @@
     </main>
 
     <footer id="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <h3>U.S. Dollar Archive</h3>
-                <p>Educação financeira e histórica para a nova geração de investidores.</p>
-            </div>
-            <div class="footer-form">
-                <h4>Newsletter Técnica</h4>
-                <form id="subscribe-form">
-                    <input type="email" placeholder="E-mail profissional" required aria-label="E-mail">
-                    <button type="submit">Acompanhar</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom centered">
-            <p>&copy; 2026 Federal History Project. Todos os direitos reservados.</p>
+        <div class="container text-center">
+            <p>&copy; 2026 Federal History Archive. Material estritamente educativo.</p>
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
