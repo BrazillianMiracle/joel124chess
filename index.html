@@ -5,46 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>Dólar Americano: A Enciclopédia Definitiva da Moeda Global</title>
-    <meta name="description" content="Explore a trajetória completa do dólar americano, desde o Coinage Act de 1792 até a hegemonia econômica do século XXI. Dados históricos, curiosidades e panorama técnico.">
-    <meta name="keywords" content="Dólar, História do Dólar, Economia, Federal Reserve, Bretton Woods, Moeda Americana, Finanças">
-    <meta name="author" content="Especialistas em História Econômica">
+    <title>U.S. Dollar Archive | A Enciclopédia da Moeda Global</title>
+    <meta name="description" content="Explore a trajetória exaustiva do dólar americano. Do Coinage Act de 1792 à era digital. Dados técnicos, história e segurança.">
+    <meta name="keywords" content="Dólar, Federal Reserve, Economia, História Monetária, Bretton Woods, Investimentos">
+    <meta name="author" content="Federal History Project">
     
+    <meta property="og:title" content="U.S. Dollar Archive | História e Poder">
+    <meta property="og:description" content="A jornada completa da moeda que governa a economia global.">
+    <meta property="og:type" content="website">
+
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/25/25228.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        :root { --main-gold: #d4af37; --deep-black: #0a0a0a; }
-        .hidden-structure { display: none; } /* Para SEO e metadados ocultos */
+        :root { --gold: #d4af37; --dark: #0a0a0a; --white: #ffffff; }
+        body.loading { overflow: hidden; }
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 9999; display: flex; justify-content: center; align-items: center; color: var(--gold); font-family: 'Cinzel', serif; }
     </style>
 </head>
+
 <body id="top" class="loading">
 
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-
-    <div id="preloader">
+    <div id="preloader" role="status" aria-label="Carregando conteúdo">
         <div class="loader-content">
             <div class="dollar-spinner">$</div>
             <p>Sincronizando Reservas Federais...</p>
         </div>
     </div>
 
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
     <header id="site-header">
         <div class="top-bar">
             <div class="container flex-row">
                 <span class="ticker">ESTADO DO MERCADO: <span class="status-online">USD ATIVO</span></span>
                 <div class="social-links">
-                    <a href="#">FB</a> <a href="#">IG</a> <a href="#">IN</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="LinkedIn">IN</a>
                 </div>
             </div>
         </div>
         
-        <nav class="main-navigation">
+        <nav class="main-navigation" role="navigation">
             <div class="container nav-wrapper">
                 <div class="logo-area">
                     <a href="#top" class="logo-link">
@@ -53,46 +59,44 @@
                 </div>
                 
                 <ul class="nav-list">
-                    <li class="nav-item dropdown">
-                        <a href="#historia-completa" class="nav-link">História</a>
-                        <div class="submenu">
-                            <a href="#era-colonial">Era Colonial</a>
-                            <a href="#guerra-civil">Guerra de Secessão</a>
-                            <a href="#fed-creation">Fundação do FED</a>
-                            <a href="#bretton-woods">Bretton Woods</a>
-                        </div>
+                    <li class="nav-item has-submenu">
+                        <a href="#era-colonial" class="nav-link">História</a>
+                        <ul class="submenu">
+                            <li><a href="#era-colonial">Era Colonial</a></li>
+                            <li><a href="#coinage-act">Lei de 1792</a></li>
+                            <li><a href="#guerra-civil">Guerra Civil</a></li>
+                            <li><a href="#fed-creation">Criação do FED</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item"><a href="#design-seguranca" class="nav-link">Segurança</a></li>
                     <li class="nav-item"><a href="#curiosidades-20" class="nav-link">Fatos</a></li>
-                    <li class="nav-item"><a href="#panorama-global" class="nav-link">Panorama</a></li>
+                    <li class="nav-item"><a href="#panorama-global" class="nav-link">Digital</a></li>
                     <li class="nav-item"><a href="#faq-secao" class="nav-link">FAQ</a></li>
-                    <li class="nav-item"><a href="#glossario" class="nav-link">Glossário</a></li>
                 </ul>
 
                 <div class="cta-area">
-                    <button class="btn-gold" id="btn-theme">MODO ESCURO</button>
+                    <button class="btn-gold" id="btn-theme" title="Alternar Modo de Cor">MODO ESCURO</button>
                 </div>
             </div>
         </nav>
     </header>
 
     <main id="main-content">
-
         <section class="hero-section" id="hero">
-            <div class="hero-video-container">
-                <div class="hero-overlay"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
                 <div class="hero-text-content">
-                    <h2 class="fade-in">A Moeda que Governa o Mundo</h2>
-                    <p class="fade-in-delayed">Uma jornada exaustiva pela genealogia, política e poder do Dólar Americano.</p>
+                    <h2 class="reveal">A Moeda que Governa o Mundo</h2>
+                    <p class="reveal-delayed">Uma análise técnica e histórica sobre a hegemonia, o design e o futuro do Dólar Americano.</p>
                     <div class="hero-actions">
-                        <a href="#era-colonial" class="btn-main">Iniciar Jornada</a>
-                        <a href="#curiosidades-20" class="btn-secondary">20 Curiosidades</a>
+                        <a href="#era-colonial" class="btn-main">Explorar Arquivo</a>
+                        <a href="#design-seguranca" class="btn-secondary">Dados de Segurança</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="era-colonial" class="content-block">
+        <section id="era-colonial" class="content-block section-padding">
             <div class="container">
                 <div class="section-header">
                     <span class="step-num">01</span>
@@ -100,303 +104,162 @@
                 </div>
                 <div class="grid-content">
                     <div class="text-column">
-                        <h3>O Vácuo de Moedas Próprias</h3>
-                        <p>No início, as treze colônias americanas não tinham permissão para cunhar suas próprias moedas. O sistema era dominado pela <strong>Libra Esterlina</strong>, mas a escassez de metal precioso levava os colonos a usarem de tudo: desde tabaco e peles de animais até o <em>Wampum</em> (contas feitas de conchas por nativos americanos).</p>
-                        <p>O comércio internacional dependia fortemente do <strong>Dólar Espanhol</strong> (ou Real de a Oito). Essa moeda de prata era tão confiável que se tornou a base de fato para o que viria a ser o dólar americano. As pessoas costumavam cortar a moeda espanhola em "pedaços de oito" para dar troco, o que deu origem à expressão "bits".</p>
+                        <h3>O Vácuo Monetário</h3>
+                        <p>Antes da independência, as Treze Colônias viviam em um caos monetário. Sem autorização real para cunhar ouro ou prata, o comércio dependia do escambo e de moedas estrangeiras. O <strong>Dólar Espanhol</strong> tornou-se a unidade mais confiável devido à sua pureza de prata.</p>
                         
                         <div class="info-box">
-                            <h4>Nota Histórica: O Papel da Continental Currency</h4>
-                            <p>Em 1775, o Congresso Continental emitiu papel-moeda para financiar a Guerra Revolucionária. Devido à superprodução e à falta de lastro, surgiu a frase "not worth a continental" (não vale um continental), simbolizando o primeiro grande colapso inflacionário da história americana.</p>
+                            <h4>Nota Histórica: Wampum e Tabaco</h4>
+                            <p>Em Massachusetts e Virgínia, na falta de metal, conchas polidas (Wampum) e folhas de tabaco eram aceitas como pagamento de impostos, demonstrando a resiliência econômica dos colonos.</p>
                         </div>
                     </div>
                     <div class="image-column">
-                        <figure>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Continental_Currency_20_Dollars_1775.jpg" alt="Moeda Continental 1775">
-                            <figcaption>Exemplo de nota continental de 1775, impressa antes da fundação oficial da nação.</figcaption>
+                        <figure class="reveal-right">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Continental_Currency_20_Dollars_1775.jpg" alt="Nota Continental de 20 Dólares de 1775">
+                            <figcaption>A "Continental Currency" falhou devido à hiperinflação, mas plantou a semente da unificação.</figcaption>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="coinage-act" class="content-block dark-bg">
+        <section id="coinage-act" class="content-block dark-bg section-padding">
             <div class="container">
-                <div class="full-width-text">
-                    <h2>1792: A Lei de Cunhagem e o Nascimento Oficial</h2>
-                    <p>O <strong>Coinage Act de 1792</strong> foi o marco legal que estabeleceu o dólar como a unidade monetária padrão dos Estados Unidos. Influenciado por Thomas Jefferson e Alexander Hamilton, o sistema foi desenhado para ser decimal, uma decisão visionária que simplificou o comércio em comparação ao complexo sistema britânico.</p>
+                <div class="full-width-text centered">
+                    <h2>1792: O Nascimento do Padrão Decimal</h2>
+                    <p>O <strong>Coinage Act</strong> estabeleceu a primeira Casa da Moeda (U.S. Mint) e definiu o Dólar como unidade base. Foi um dos primeiros sistemas monetários do mundo a adotar a base decimal pura, uma ideia defendida ferrenhamente por Thomas Jefferson.</p>
                     
                     <div class="stats-grid-complex">
                         <div class="stat-card">
-                            <h5>Peso Original do Dólar</h5>
-                            <p>371,25 grãos de prata pura ou 416 grãos de prata padrão.</p>
+                            <span class="stat-value">371.25</span>
+                            <span class="stat-label">Grãos de Prata Pura</span>
                         </div>
                         <div class="stat-card">
-                            <h5>A Primeira Casa da Moeda</h5>
-                            <p>Localizada em Filadélfia, a primeira capital dos EUA sob a Constituição.</p>
+                            <span class="stat-value">15:1</span>
+                            <span class="stat-label">Razão Prata/Ouro</span>
                         </div>
                         <div class="stat-card">
-                            <h5>Bimetalismo</h5>
-                            <p>O valor era fixado tanto em ouro quanto em prata na proporção de 15:1.</p>
+                            <span class="stat-value">1792</span>
+                            <span class="stat-label">Ano de Fundação</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="guerra-civil" class="content-block">
+        <section id="guerra-civil" class="content-block section-padding">
             <div class="container">
                 <div class="section-header">
                     <span class="step-num">02</span>
-                    <h2>A Crise que Mudou a Cor da Moeda (1861-1865)</h2>
+                    <h2>A Ascensão dos Greenbacks (1861)</h2>
                 </div>
-                <div class="article-body">
-                    <p>Durante a Guerra de Secessão, o governo federal sob Abraham Lincoln enfrentou a falência iminente. Para financiar o exército da União, o Congresso aprovou o <strong>Legal Tender Act de 1862</strong>. Isso permitiu a emissão de notas que não podiam ser resgatadas imediatamente por moedas de metal.</p>
-                    <p>Como o verso dessas notas era impresso com tinta verde barata para evitar falsificações fotográficas, elas ganharam o apelido eterno de <strong>"Greenbacks"</strong>. Este foi o início do controle centralizado da moeda pelo governo federal, tirando o poder de bancos privados que emitiam suas próprias notas locais.</p>
+                <div class="grid-content inverted">
+                    <div class="text-column">
+                        <p>A Guerra de Secessão exigiu financiamento massivo. O governo Lincoln emitiu os "Demand Notes", as primeiras notas de circulação nacional sem lastro metálico imediato. O apelido <strong>Greenback</strong> surgiu devido à tinta verde usada no verso para dificultar a falsificação fotográfica da época.</p>
+                        
+                        <table class="data-table reveal-bottom">
+                            <thead>
+                                <tr>
+                                    <th>Ano</th>
+                                    <th>Emissão</th>
+                                    <th>Poder de Compra</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1861</td><td>$60 Milhões</td><td>95%</td></tr>
+                                <tr><td>1863</td><td>$450 Milhões</td><td>45%</td></tr>
+                                <tr><td>1865</td><td>Pós-Guerra</td><td>52%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="design-seguranca" class="content-block gold-accent section-padding">
+            <div class="container">
+                <h2 class="centered">Engenharia Anti-Falsificação</h2>
+                <div class="tech-specs-grid">
+                    <article class="spec-item">
+                        <div class="icon-box">🛡️</div>
+                        <h3>Papel de Tecido</h3>
+                        <p>Composto por 75% algodão e 25% linho, com fibras sintéticas vermelhas e azuis visíveis apenas sob inspeção detalhada.</p>
+                    </article>
+                    <article class="spec-item">
+                        <div class="icon-box">🔍</div>
+                        <h3>Fio de Polímero</h3>
+                        <p>Cada denominação possui um fio que brilha em cores diferentes sob luz UV (Laranja para $10, Rosa para $100).</p>
+                    </article>
+                    <article class="spec-item">
+                        <div class="icon-box">🎨</div>
+                        <h3>Tinta OVI</h3>
+                        <p>Tinta opticamente variável que muda de cor ao inclinar a nota, passando de cobre para verde.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="curiosidades-20" class="content-block section-padding bg-light">
+            <div class="container">
+                <h2 class="centered">Fatos e Curiosidades</h2>
+                <div class="curio-masonry">
+                    <div class="curio-card">
+                        <span class="curio-num">01</span>
+                        <p>A nota de $100 é a mais circulada fora dos EUA, servindo como reserva de valor global.</p>
+                    </div>
+                    <div class="curio-card">
+                        <span class="curio-num">02</span>
+                        <p>Nenhuma pessoa viva pode ser retratada em notas de dólar, por lei federal.</p>
+                    </div>
+                    <div class="curio-card">
+                        <span class="curio-num">03</span>
+                        <p>O Federal Reserve de NY guarda mais de 6 mil toneladas de ouro em seu cofre subterrâneo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="panorama-global" class="content-block section-padding">
+            <div class="container centered">
+                <h2>O Futuro: Dólar Digital (CBDC)</h2>
+                <p class="max-width-p">O FED estuda atualmente a implementação do Dólar Digital para combater a volatilidade das criptomoedas e manter a eficiência nos pagamentos transfronteiriços.</p>
                 
-                <div class="data-table-wrapper">
-                    <h3>Comparativo de Emissão (União vs Confederação)</h3>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Ano</th>
-                                <th>Tipo de Nota</th>
-                                <th>Volume de Impressão</th>
-                                <th>Poder de Compra (Est.)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1861</td><td>Demand Notes</td><td>$60 Milhões</td><td>95%</td></tr>
-                            <tr><td>1862</td><td>United States Notes</td><td>$150 Milhões</td><td>82%</td></tr>
-                            <tr><td>1863</td><td>Fractional Currency</td><td>$20 Milhões</td><td>60%</td></tr>
-                            <tr><td>1864</td><td>Greenbacks (Expansão)</td><td>$450 Milhões</td><td>45%</td></tr>
-                            <tr><td>1865</td><td>Pós-Guerra</td><td>$400 Milhões</td><td>52%</td></tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </section>
 
-        <section id="fed-creation" class="content-block bg-light">
+        <section id="faq-secao" class="content-block section-padding bg-dark text-light">
             <div class="container">
-                <h2>O Federal Reserve e as Guerras Mundiais</h2>
-                <div class="flex-container">
-                    <div class="text-part">
-                        <p>Em 1913, após uma série de pânicos bancários, o presidente Woodrow Wilson assinou o <strong>Federal Reserve Act</strong>. Isso criou o banco central que conhecemos hoje, encarregado de fornecer uma moeda elástica e estável.</p>
-                        <p>Após a 1ª Guerra Mundial, os EUA emergiram como o maior credor do mundo. O dólar começou a desafiar a Libra Esterlina como moeda principal de reserva, processo concluído em 1944 com o <strong>Acordo de Bretton Woods</strong>.</p>
+                <h2 class="centered">FAQ Econômico</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Por que o dólar é a moeda de reserva?</button>
+                        <div class="accordion-content">
+                            <p>Devido à estabilidade das instituições americanas e à liquidez sem paralelos do mercado de títulos do Tesouro (Treasuries).</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="curiosidades-20" class="content-block">
-            <div class="container">
-                <h2 class="section-title">20 Curiosidades que Você Precisa Saber</h2>
-                <div class="curiosity-grid-expanded">
-                    <div class="curio-item">
-                        <div class="curio-header"><span>01</span> <h4>A "Nota de Árvore"</h4></div>
-                        <p>O dólar não é papel. É tecnicamente um tecido feito de 75% algodão e 25% linho, com fibras de segurança vermelhas e azuis inseridas.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>02</span> <h4>O Olho de Hórus?</h4></div>
-                        <p>O "Olho da Providência" no topo da pirâmide simboliza a vigilância de Deus sobre a nova nação, e não uma ligação direta com os Illuminati, como sugerem teorias da conspiração.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>03</span> <h4>A Frase Famosa</h4></div>
-                        <p>"In God We Trust" apareceu pela primeira vez em moedas em 1864, mas só se tornou obrigatória em todas as notas em 1955, durante a Guerra Fria.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>04</span> <h4>A Nota de 100 Mil</h4></div>
-                        <p>A nota de maior denominação já impressa foi o Certificado de Ouro de $100.000 em 1934, usado apenas para transações internas entre bancos federais.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>05</span> <h4>Martha Washington</h4></div>
-                        <p>A única mulher a aparecer em uma nota de dólar americano foi a primeira-dama Martha Washington, no Certificado de Prata de $1 em 1886 e 1891.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>06</span> <h4>Durabilidade</h4></div>
-                        <p>Uma nota de $1 pode ser dobrada 4.000 vezes antes de rasgar definitivamente.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>07</span> <h4>Rastreabilidade</h4></div>
-                        <p>O site "Where's George?" permite que você rastreie por onde as notas que passam pela sua mão já viajaram.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>08</span> <h4>Custos de Produção</h4></div>
-                        <p>Curiosamente, custa mais caro fabricar um centavo (penny) do que o valor que ele representa.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>09</span> <h4>A Nota de $2</h4></div>
-                        <p>Muitas pessoas acham que a nota de $2 é falsa ou saiu de linha, mas ela ainda é produzida e é considerada um item de sorte por muitos.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>10</span> <h4>Bactérias</h4></div>
-                        <p>Aproximadamente 94% das notas de dólar testadas carregam bactérias, e um percentual alto contém traços de cocaína devido ao manuseio no tráfico.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>11</span> <h4>A Pirâmide Inacabada</h4></div>
-                        <p>Ela possui 13 degraus, representando as 13 colônias originais que formaram os Estados Unidos.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>12</span> <h4>O Símbolo $</h4></div>
-                        <p>Sua origem é debatida, mas a teoria mais aceita é que veio da abreviação de "Ps" para Pesos espanhóis.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>13</span> <h4>Tinta Secreta</h4></div>
-                        <p>A composição exata da tinta verde usada é um segredo de segurança nacional guardado pelo Bureau of Engraving and Printing.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>14</span> <h4>Microimpressão</h4></div>
-                        <p>Existem palavras tão pequenas nas notas que só podem ser lidas com microscópios, como defesa contra scanners de alta resolução.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>15</span> <h4>O Federal Reserve de NY</h4></div>
-                        <p>O cofre em Nova York fica 25 metros abaixo do nível do mar e guarda mais ouro do que o famoso Fort Knox.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>16</span> <h4>Falsificação Norte-Coreana</h4></div>
-                        <p>A Coreia do Norte é famosa por produzir as "Supernotas", falsificações tão perfeitas que enganam até especialistas do Tesouro.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>17</span> <h4>Vida Útil Média</h4></div>
-                        <p>Uma nota de $100 dura muito mais que uma de $1, pois circula menos frequentemente em transações diárias.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>18</span> <h4>Nenhum Presidente?</h4></div>
-                        <p>Alexander Hamilton ($10) e Benjamin Franklin ($100) não foram presidentes, apesar de estarem nas notas mais famosas.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>19</span> <h4>O Tamanho Padronizado</h4></div>
-                        <p>Até 1929, as notas de dólar eram cerca de 30% maiores. O tamanho foi reduzido para economizar custos de papel e tinta.</p>
-                    </div>
-                    <div class="curio-item">
-                        <div class="curio-header"><span>20</span> <h4>Moeda de Reserva</h4></div>
-                        <p>Mesmo com a ascensão da China, o dólar ainda compõe cerca de 58% das reservas cambiais de todos os bancos centrais do mundo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="design-seguranca" class="content-block bg-dark text-light">
-            <div class="container">
-                <h2>Engenharia de Segurança</h2>
-                <div class="tech-specs">
-                    <div class="spec-group">
-                        <h3>Marca D'água</h3>
-                        <p>Visível quando segurada contra a luz, a marca d'água é uma réplica do retrato da nota e não é impressa, mas sim formada pela variação da espessura do papel.</p>
-                    </div>
-                    <div class="spec-group">
-                        <h3>Fio de Segurança</h3>
-                        <p>Um fio vertical de polímero que brilha em cores específicas sob luz ultravioleta (Ex: $100 brilha rosa, $50 brilha amarelo).</p>
-                    </div>
-                    <div class="spec-group">
-                        <h3>Tinta que Muda de Cor</h3>
-                        <p>Nas notas de $10 a $100, o número no canto inferior direito muda de cobre para verde ao inclinar a nota.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="panorama-global" class="content-block">
-            <div class="container">
-                <h2>O Dólar no Século XXI: Digitalização e Desafios</h2>
-                <div class="panorama-wrapper">
-                    <div class="panorama-text">
-                        <p>O surgimento das criptomoedas e o projeto do <strong>Dólar Digital (CBDC)</strong> são os novos horizontes do FED. A moeda enfrenta o desafio da inflação global pós-pandemia e as tentativas de "desdolarização" por blocos como o BRICS.</p>
-                        <blockquote>"O dólar é a nossa moeda, mas o seu problema." — John Connally, 1971.</blockquote>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq-secao" class="content-block">
-            <div class="container">
-                <h2>Perguntas Frequentes (FAQ)</h2>
-                <div class="faq-accordion">
-                    <div class="faq-item">
-                        <div class="faq-question">O que acontece se uma nota rasgar ao meio?</div>
-                        <div class="faq-answer">Se você tiver mais de 50% da nota original, os bancos americanos são obrigados a trocá-la por uma nova.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Por que o dólar é aceito em quase todo lugar?</div>
-                        <div class="faq-answer">Devido à estabilidade política dos EUA e à profundidade de seus mercados financeiros, o que gera confiança global.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quem decide o valor do dólar?</div>
-                        <div class="faq-answer">O mercado de câmbio (oferta e demanda) e as políticas de juros decididas pelo Comitê Federal de Mercado Aberto (FOMC).</div>
-                    </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="glossario" class="content-block">
-            <div class="container">
-                <h2>Glossário do Dólar</h2>
-                <dl class="glossary-list">
-                    <dt>Fiat Currency</dt>
-                    <dd>Moeda que não tem lastro em ouro ou prata, mas vale pelo decreto do governo.</dd>
-                    <dt>Petrodólar</dt>
-                    <dd>Dólares pagos a países exportadores de petróleo, geralmente mantidos em bancos ocidentais.</dd>
-                    <dt>Seigniorage (Senhoriagem)</dt>
-                    <dd>A diferença entre o valor de face da moeda e o custo real de produzi-la.</dd>
-                </dl>
-            </div>
-        </section>
-
     </main>
 
     <footer id="site-footer">
-        <div class="footer-top">
-            <div class="container footer-grid">
-                <div class="footer-col info">
-                    <h4>USD Archive Project</h4>
-                    <p>Um recurso educacional dedicado a preservar a história monetária da civilização ocidental.</p>
-                </div>
-                <div class="footer-col links">
-                    <h4>Navegação Rápida</h4>
-                    <ul>
-                        <li><a href="#era-colonial">Início da História</a></li>
-                        <li><a href="#guerra-civil">Guerra Civil</a></li>
-                        <li><a href="#curiosidades-20">Fatos Úteis</a></li>
-                        <li><a href="#design-seguranca">Segurança</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col resources">
-                    <h4>Fontes Oficiais</h4>
-                    <ul>
-                        <li><a href="https://www.federalreserve.gov" target="_blank">Federal Reserve</a></li>
-                        <li><a href="https://www.treasury.gov" target="_blank">U.S. Treasury</a></li>
-                        <li><a href="https://www.usmint.gov" target="_blank">U.S. Mint</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col newsletter">
-                    <h4>Atualizações Econômicas</h4>
-                    <form id="subscribe-form">
-                        <input type="email" placeholder="Seu melhor e-mail">
-                        <button type="submit">Assinar</button>
-                    </form>
-                </div>
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>U.S. Dollar Archive</h3>
+                <p>Educação financeira e histórica para a nova geração de investidores.</p>
+            </div>
+            <div class="footer-form">
+                <h4>Newsletter Técnica</h4>
+                <form id="subscribe-form">
+                    <input type="email" placeholder="E-mail profissional" required aria-label="E-mail">
+                    <button type="submit">Acompanhar</button>
+                </form>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="container flex-row">
-                <p>&copy; 2026 U.S. Dollar History Project - Conteúdo sob Licença Educativa.</p>
-                <div class="legal-links">
-                    <a href="#">Privacidade</a> | <a href="#">Termos de Uso</a>
-                </div>
-            </div>
+        <div class="footer-bottom centered">
+            <p>&copy; 2026 Federal History Project. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    
-    <div class="hidden-structure">
-        <article>
-            <h6>Documentação Técnica v4.2.1</h6>
-            <p>Implementação de acessibilidade ARIA-label em todos os componentes de navegação...</p>
-            </article>
-    </div>
-
+    <script src="script.js" defer></script>
 </body>
 </html>

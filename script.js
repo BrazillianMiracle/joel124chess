@@ -1,15 +1,14 @@
 /**
  * FEDERAL HISTORY ARCHIVE - CORE ENGINE v3.0
- * Sistema avançado de gestão de interface, animações e cálculos econômicos.
- * Total de Linhas: > 350
+ * Sincronizado para compatibilidade total com HTML5/CSS3 Premium
  */
 
 "use strict";
 
 const AppConfig = {
-    scrollThreshold: 100,
+    scrollThreshold: 50,
     animationSpeed: 200,
-    observerThreshold: 0.15,
+    observerThreshold: 0.10,
     inflationMultipliers: {
         "1913": 31.54,
         "1944": 17.82,
@@ -20,298 +19,167 @@ const AppConfig = {
 };
 
 const App = {
-    /**
-     * Inicializador mestre do ecossistema JavaScript
-     */
     init() {
-        console.info("Iniciando Engine Dólar History...");
+        console.info("U.S. Dollar Archive: Engine Iniciada.");
         
-        try {
-            this.setupPreloader();
-            this.handleNavigation();
-            this.themeSystem();
-            this.counterEngine();
-            this.scrollObserverEngine();
-            this.parallaxController();
-            this.economicCalculator();
-            this.formHandler();
-            this.smoothScrollEngine();
-            this.responsiveMenu();
-            this.accessibilityEnhancer();
-            
-            window.addEventListener('resize', () => this.handleWindowResize());
-            console.log("Sistema operacional. Todas as dependências carregadas.");
-        } catch (error) {
-            this.errorReport("Falha na inicialização do App", error);
-        }
+        this.setupPreloader();
+        this.handleNavigation();
+        this.themeSystem();
+        this.counterEngine();
+        this.scrollObserverEngine();
+        this.smoothScrollEngine();
+        this.accessibilityEnhancer();
+        
+        // Listener para barra de progresso
+        window.addEventListener('scroll', () => this.updateProgressBar());
     },
 
     /**
-     * Gerencia o estado de carregamento inicial (Preloader)
+     * Remove o preloader e libera o site
      */
     setupPreloader() {
-        const loader = document.getElementById('loader-wrapper');
+        const loader = document.getElementById('preloader');
         const body = document.body;
-
-        if (!loader) return;
 
         window.addEventListener('load', () => {
             setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                loader.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                body.classList.add('dom-ready');
-                
-                // Dispara animação de entrada do Hero
-                const heroTitle = document.querySelector('#hero h1');
-                if (heroTitle) heroTitle.classList.add('animated-entry');
-            }, 800);
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        body.classList.remove('loading');
+                    }, 500);
+                }
+            }, 1000);
         });
     },
 
     /**
-     * Controle dinâmico da Barra de Navegação
+     * Atualiza a barra de progresso no topo
+     */
+    updateProgressBar() {
+        const progressBar = document.getElementById('progress-bar');
+        if (!progressBar) return;
+        
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    },
+
+    /**
+     * Controle do Header (muda ao rolar)
      */
     handleNavigation() {
-        const header = document.getElementById('top-nav');
+        const header = document.getElementById('site-header');
         if (!header) return;
 
-        const updateHeader = () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > AppConfig.scrollThreshold) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > AppConfig.scrollThreshold) {
                 header.classList.add('scrolled');
-                header.style.padding = "12px 0";
             } else {
                 header.classList.remove('scrolled');
-                header.style.padding = "25px 0";
-            }
-        };
-
-        window.addEventListener('scroll', updateHeader, { passive: true });
-    },
-
-    /**
-     * Sistema de alternância de temas com persistência em Cache
-     */
-    themeSystem() {
-        const toggleBtn = document.getElementById('mode-switcher');
-        const body = document.body;
-        
-        const saveTheme = (theme) => localStorage.setItem('usd_portal_theme', theme);
-        const getSavedTheme = () => localStorage.getItem('usd_portal_theme');
-
-        // Aplica estado inicial
-        if (getSavedTheme() === 'dark') {
-            body.classList.add('dark-theme');
-        }
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                body.classList.toggle('dark-theme');
-                
-                const isDark = body.classList.contains('dark-theme');
-                saveTheme(isDark ? 'dark' : 'light');
-
-                // Animação de feedback
-                toggleBtn.style.transform = "scale(0.8) rotate(15deg)";
-                setTimeout(() => {
-                    toggleBtn.style.transform = "scale(1) rotate(0deg)";
-                }, 200);
-            });
-        }
-    },
-
-    /**
-     * Engine de contagem progressiva para estatísticas
-     */
-    counterEngine() {
-        const counters = document.querySelectorAll('.counter');
-        
-        const animate = (counter) => {
-            const target = parseFloat(counter.getAttribute('data-target'));
-            const current = parseFloat(counter.innerText);
-            const increment = target / AppConfig.animationSpeed;
-
-            if (current < target) {
-                counter.innerText = Math.ceil(current + increment);
-                requestAnimationFrame(() => animate(counter));
-            } else {
-                counter.innerText = target;
-            }
-        };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animate(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.8 });
-
-        counters.forEach(c => counterObserver.observe(c));
-    },
-
-    /**
-     * Gerencia a revelação de elementos ao longo do scroll
-     */
-    scrollObserverEngine() {
-        const scrollItems = document.querySelectorAll('.history-block, .curio-card, .stat-item, table tr');
-        
-        const revealOptions = {
-            threshold: AppConfig.observerThreshold,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const revealCallback = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                    // Opcional: parar de observar após revelar
-                    // revealObserver.unobserve(entry.target);
-                }
-            });
-        };
-
-        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-
-        scrollItems.forEach(item => {
-            item.style.opacity = "0";
-            item.style.transform = "translateY(40px)";
-            item.style.transition = "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-            revealObserver.observe(item);
-        });
-    },
-
-    /**
-     * Controle de efeitos de profundidade (Parallax)
-     */
-    parallaxController() {
-        const heroBg = document.querySelector('.hero-overlay');
-        const heroText = document.querySelector('.hero-container');
-
-        if (!heroBg) return;
-
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.pageYOffset;
-            
-            // Move o fundo mais devagar que o texto
-            heroBg.style.transform = `translateY(${scrollPos * 0.4}px)`;
-            
-            if (heroText) {
-                heroText.style.opacity = 1 - (scrollPos / 700);
-                heroText.style.transform = `translateY(${scrollPos * 0.1}px)`;
             }
         }, { passive: true });
     },
 
     /**
-     * Simulador de Poder de Compra (Lógica Financeira)
+     * Alternador de Tema (Dark/Light)
      */
-    economicCalculator() {
-        const calcBtn = document.getElementById('btn-calculate');
-        if (!calcBtn) return;
+    themeSystem() {
+        const toggleBtn = document.getElementById('btn-theme');
+        const body = document.body;
+        
+        // Verifica preferência salva
+        if (localStorage.getItem('usd_theme') === 'dark') {
+            body.classList.add('dark-theme');
+            if(toggleBtn) toggleBtn.innerText = "MODO CLARO";
+        }
 
-        calcBtn.addEventListener('click', () => {
-            const inputVal = document.getElementById('calc-amount');
-            const yearSelect = document.getElementById('calc-year');
-            const resultDisplay = document.getElementById('calc-result');
-
-            if (!inputVal || !yearSelect || !resultDisplay) return;
-
-            const amount = parseFloat(inputVal.value);
-            const year = yearSelect.value;
-
-            if (isNaN(amount) || amount <= 0) {
-                this.showToast("Por favor, insira um valor válido.");
-                return;
-            }
-
-            const multiplier = AppConfig.inflationMultipliers[year] || 1;
-            const finalValue = amount * multiplier;
-
-            resultDisplay.innerHTML = `
-                <div class="result-box animated fadeIn">
-                    <small>Poder de compra ajustado para 2026:</small>
-                    <h3>US$ ${finalValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
-                </div>
-            `;
-        });
-    },
-
-    /**
-     * Validação avançada e higienização de formulários
-     */
-    formHandler() {
-        const form = document.querySelector('#subscribe-form');
-        if (!form) return;
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = form.querySelector('input[type="email"]');
-            const feedback = form.querySelector('.form-feedback');
-
-            if (!this.isValidEmail(emailInput.value)) {
-                emailInput.style.borderColor = "#e74c3c";
-                this.showToast("E-mail inválido.");
-                return;
-            }
-
-            // Simulação de envio AJAX
-            const btn = form.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = "Processando...";
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.innerText = "Sucesso!";
-                btn.style.backgroundColor = "#27ae60";
-                emailInput.value = "";
-                this.showToast("Inscrição realizada com sucesso!");
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                const isDark = body.classList.contains('dark-theme');
+                localStorage.setItem('usd_theme', isDark ? 'dark' : 'light');
+                toggleBtn.innerText = isDark ? "MODO CLARO" : "MODO ESCURO";
                 
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                    btn.style.backgroundColor = "";
-                }, 3000);
-            }, 1500);
+                this.showToast(isDark ? "Modo Escuro Ativado" : "Modo Claro Ativado");
+            });
+        }
+    },
+
+    /**
+     * Animação de números (Ex: Estatísticas)
+     */
+    counterEngine() {
+        const counters = document.querySelectorAll('.stat-value');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseFloat(entry.target.innerText);
+                    if (isNaN(target)) return;
+                    
+                    this.animateValue(entry.target, 0, target, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => observer.observe(c));
+    },
+
+    animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = (progress * (end - start)).toFixed(progress === 1 ? 2 : 0);
+            obj.innerHTML = current;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    },
+
+    /**
+     * Revelação de conteúdo On-Scroll
+     */
+    scrollObserverEngine() {
+        const revealItems = document.querySelectorAll('.content-block, .curio-card, .stat-card, figure');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    // Aplicando estilo via JS para garantir a animação caso o CSS falhe
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: AppConfig.observerThreshold });
+
+        revealItems.forEach(item => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(30px)";
+            item.style.transition = "all 0.8s ease-out";
+            revealObserver.observe(item);
         });
     },
 
     /**
-     * Utilitário: Validação de RegEx para E-mail
-     */
-    isValidEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    },
-
-    /**
-     * Engine de Navegação Suave (Anchor Links)
+     * Scroll Suave para links internos
      */
     smoothScrollEngine() {
-        const links = document.querySelectorAll('a[href^="#"]');
-        
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === "#" || href === "#top") return;
-
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(href);
-
-                if (targetElement) {
-                    const offset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
                     window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
                     });
                 }
             });
@@ -319,109 +187,38 @@ const App = {
     },
 
     /**
-     * Lógica de Menu Mobile (Hambúrguer)
-     */
-    responsiveMenu() {
-        const navContainer = document.querySelector('.nav-wrapper');
-        const menu = document.querySelector('.main-menu');
-        
-        if (!menu) return;
-
-        const mobileBtn = document.createElement('button');
-        mobileBtn.className = 'mobile-menu-toggle';
-        mobileBtn.innerHTML = '<span></span><span></span><span></span>';
-        mobileBtn.setAttribute('aria-label', 'Abrir Menu');
-        
-        if (window.innerWidth < 992) {
-            navContainer.appendChild(mobileBtn);
-        }
-
-        mobileBtn.addEventListener('click', () => {
-            menu.classList.toggle('mobile-active');
-            mobileBtn.classList.toggle('is-active');
-            document.body.classList.toggle('no-scroll');
-        });
-    },
-
-    /**
-     * Melhora a acessibilidade do site via JS
-     */
-    accessibilityEnhancer() {
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            if (!img.hasAttribute('alt')) {
-                img.setAttribute('alt', 'Imagem histórica sobre a economia americana');
-            }
-        });
-
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach(btn => {
-            if (!btn.hasAttribute('title')) {
-                btn.setAttribute('title', btn.innerText || 'Botão de ação');
-            }
-        });
-    },
-
-    /**
-     * Sistema de Notificação Customizado (Toast)
+     * Notificações Toast
      */
     showToast(message) {
+        const existing = document.querySelector('.toast');
+        if (existing) existing.remove();
+
         const toast = document.createElement('div');
-        toast.className = 'custom-toast animated slideInRight';
+        toast.className = 'toast';
+        toast.style.cssText = `
+            position: fixed; bottom: 20px; right: 20px; 
+            background: var(--gold); color: #000; 
+            padding: 12px 25px; border-radius: 5px; 
+            font-weight: bold; z-index: 9999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease-out;
+        `;
         toast.innerText = message;
-        
         document.body.appendChild(toast);
 
         setTimeout(() => {
-            toast.classList.replace('slideInRight', 'slideOutRight');
+            toast.style.opacity = '0';
             setTimeout(() => toast.remove(), 500);
-        }, 4000);
+        }, 3000);
     },
 
-    /**
-     * Tratamento de Erros e Logs
-     */
-    errorReport(context, error) {
-        console.group("Relatório de Erro USD History");
-        console.error(`Contexto: ${context}`);
-        console.error(`Mensagem: ${error.message}`);
-        console.trace();
-        console.groupEnd();
-    },
-
-    /**
-     * Handler para redimensionamento de janela
-     */
-    handleWindowResize() {
-        const width = window.innerWidth;
-        // Lógica para ajustar componentes pesados em tempo real
-        if (width > 992) {
-            const menu = document.querySelector('.main-menu');
-            if (menu) menu.classList.remove('mobile-active');
-            document.body.classList.remove('no-scroll');
-        }
+    accessibilityEnhancer() {
+        // Garante que links vazios não quebrem a navegação
+        document.querySelectorAll('a[href="#"]').forEach(a => {
+            a.addEventListener('click', e => e.preventDefault());
+        });
     }
 };
 
-/**
- * Inicialização robusta protegida por IIFE
- */
-(function() {
-    try {
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", () => App.init());
-        } else {
-            App.init();
-        }
-    } catch (fatalError) {
-        console.error("Falha catastrófica no carregamento do script:", fatalError);
-    }
-})();
-
-/**
- * HISTÓRICO DE VERSÕES:
- * v1.0: Estrutura básica
- * v2.0: Adicionado observadores de interseção
- * v3.0: Implementação de lógica econômica, toasts e expansão de performance.
- * * -- FIM DO ARQUIVO --
- */
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => App.init());
