@@ -3,139 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dólar: A Saga da Moeda Global | Panorama Completo</title>
+    <meta name="description" content="A enciclopédia definitiva sobre a história do dólar americano, desde 1792 até a era digital.">
+    <title>Dólar: O Império do Papel | Documentário Interativo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="light-theme">
 
-    <header id="main-header">
-        <nav class="navbar">
-            <div class="logo">USD<span>History</span></div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#historia">História Detalhada</a></li>
-                <li><a href="#fatos">20 Curiosidades</a></li>
-                <li><a href="#panorama">Panorama Atual</a></li>
-                <li><a href="#calculadora">Simulador Inflação</a></li>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <header id="top-nav">
+        <nav class="container">
+            <div class="brand">
+                <span class="symbol">$</span>
+                <div class="brand-text">
+                    <strong>FEDERAL</strong>
+                    <span>HISTORY ARCHIVE</span>
+                </div>
+            </div>
+            <ul class="main-menu">
+                <li><a href="#genesis">Gênese (1792)</a></li>
+                <li><a href="#guerra-civil">Guerra Civil</a></li>
+                <li><a href="#padrao-ouro">Padrão Ouro</a></li>
+                <li><a href="#bretton-woods">Bretton Woods</a></li>
+                <li><a href="#nixon-shock">Choque de Nixon</a></li>
+                <li><a href="#curiosidades">20 Fatos</a></li>
+                <li><a href="#data-center">Painel de Dados</a></li>
             </ul>
-            <button id="theme-toggle">Alternar Tema</button>
+            <div class="nav-tools">
+                <button id="mode-switcher" title="Alternar Modo de Leitura">
+                    <span class="icon">🌓</span>
+                </button>
+            </div>
         </nav>
-        <div class="hero-content" id="inicio">
-            <h1>A Evolução do Império de Papel</h1>
-            <p>De uma colônia em revolta à hegemonia financeira global. Explore cada centavo dessa história.</p>
-            <a href="#historia" class="btn-primary">Explorar Timeline</a>
-        </div>
     </header>
 
     <main>
-        <section id="historia" class="content-section">
-            <h2 class="section-title">A Origem e a Evolução</h2>
-            
-            <div class="timeline-container">
-                <article class="timeline-item" data-aos="fade-up">
-                    <div class="date">1792</div>
-                    <h3>O Coinage Act</h3>
-                    <p>O Ato de Cunhagem de 1792 estabeleceu o dólar dos Estados Unidos como a unidade de conta padrão do país. Inspirado no "Thaler" espanhol, a moeda nasceu com um sistema decimal inovador para a época. Inicialmente, o valor era atrelado à prata e ao ouro em uma proporção fixa, estabelecendo as bases para o bimetalismo que duraria décadas.</p>
-                    <p>A primeira Casa da Moeda (U.S. Mint) foi estabelecida em Filadélfia, então capital da nação. Curiosamente, as primeiras moedas não levavam a efígie de presidentes, mas sim representações da Liberdade.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="date">1861</div>
-                    <h3>Guerra Civil e os "Greenbacks"</h3>
-                    <p>Durante a Guerra Civil Americana, a necessidade de financiamento rápido levou o governo de Abraham Lincoln a emitir papel-moeda sem lastro imediato em ouro. Essas notas tinham o verso verde, o que lhes rendeu o apelido de "Greenbacks". Este foi um momento crucial, pois marcou a primeira vez que o governo federal emitiu moeda fiduciária em larga escala para sustentar o esforço de guerra.</p>
-                </article>
-
-                
-
-                <article class="timeline-item">
-                    <div class="date">1944</div>
-                    <h3>O Acordo de Bretton Woods</h3>
-                    <p>Ao final da Segunda Guerra Mundial, delegados de 44 nações se reuniram para redesenhar o sistema financeiro mundial. O dólar foi escolhido como a moeda de reserva global, sendo a única conversível em ouro (a US$ 35 por onça). Isso solidificou a posição dos EUA como a maior potência econômica do planeta, criando instituições como o FMI e o Banco Mundial.</p>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="date">1971</div>
-                    <h3>O Choque de Nixon</h3>
-                    <p>Em agosto de 1971, o presidente Richard Nixon suspendeu unilateralmente a conversibilidade do dólar em ouro. Esse evento encerrou o sistema de Bretton Woods e deu início à era das taxas de câmbio flutuantes e da moeda puramente fiduciária (fiat), onde o valor é baseado na confiança e no poder econômico do emissor, não em um metal precioso.</p>
-                </article>
+        <section id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-container">
+                <h1 class="glitch" data-text="IN GOD WE TRUST">IN GOD WE TRUST</h1>
+                <p class="subtitle">A Trajetória da Moeda que Moldou o Destino das Nações</p>
+                <div class="scroll-indicator">
+                    <span>Explore a História</span>
+                    <div class="mouse"></div>
+                </div>
             </div>
         </section>
 
-        <section id="fatos" class="grid-section">
-            <h2 class="section-title">20 Coisas Úteis Sobre o Dólar</h2>
-            <div class="curiosities-grid">
-                <div class="card">
-                    <h4>1. Composição Única</h4>
-                    <p>O dólar não é feito de papel comum (madeira), mas sim de uma mistura de 75% algodão e 25% linho, o que garante sua durabilidade e textura única.</p>
+        <section id="genesis" class="history-block">
+            <div class="container grid-2">
+                <div class="text-content">
+                    <h2 class="section-tag">Capítulo I</h2>
+                    <h3>1792: O Nascimento de um Ícone</h3>
+                    <p>O <strong>Coinage Act de 1792</strong> não foi apenas uma lei técnica; foi uma declaração de independência financeira. Antes disso, as colônias operavam em um caos de moedas estrangeiras, principalmente o "Real de a Oito" espanhol. Alexander Hamilton, o primeiro Secretário do Tesouro, insistiu em um sistema decimal — uma ideia revolucionária na época.</p>
+                    <p>O dólar foi definido como tendo o peso exato de 371,25 grãos de prata pura. A primeira Casa da Moeda foi construída em Filadélfia, e as máquinas eram movidas a cavalos antes da introdução do vapor. O design original focava na "Liberdade", evitando faces de monarcas para reforçar o espírito republicano.</p>
+                    <p>Curiosamente, o termo "Dollar" deriva da palavra alemã "Thaler", uma moeda de prata que circulava amplamente na Europa desde o século XVI. Os americanos adaptaram o nome para se distanciar da libra esterlina britânica.</p>
                 </div>
-                <div class="card">
-                    <h4>2. A Nota de $2</h4>
-                    <p>Embora raras, as notas de 2 dólares ainda são impressas e têm curso legal. Elas são frequentemente guardadas como itens de sorte.</p>
-                </div>
-                <div class="card">
-                    <h4>3. Símbolo Oculto</h4>
-                    <p>A pirâmide inacabada no verso da nota de 1 dólar simboliza força e duração, enquanto o "Olho da Providência" representa a vigilância divina sobre a nação.</p>
-                </div>
-                <div class="card">
-                    <h4>4. Rastreabilidade</h4>
-                    <p>Cada nota possui um número de série único que indica em qual dos 12 bancos do Federal Reserve ela foi impressa.</p>
-                </div>
-                </div>
-        </section>
-
-        <section id="panorama" class="data-section">
-            <div class="data-container">
-                <h2>O Dólar Hoje e Amanhã</h2>
-                <div class="text-block">
-                    <p>Atualmente, o dólar americano representa cerca de 58% das reservas cambiais globais. Apesar do surgimento de criptomoedas e da ascensão do Yuan chinês, o USD permanece como a principal moeda de liquidação no comércio internacional, especialmente no mercado de petróleo (Petrodólares).</p>
-                    <p>O controle da moeda é exercido pelo Federal Reserve (Fed), que ajusta as taxas de juros para equilibrar o pleno emprego e a estabilidade de preços (meta de inflação de 2%).</p>
-                </div>
-                
-                <div class="chart-placeholder">
-                    <div class="bar-chart">
-                        <div class="bar" style="height: 90%;" data-label="Reservas Globais (USD)"></div>
-                        <div class="bar" style="height: 40%;" data-label="Euro"></div>
-                        <div class="bar" style="height: 15%;" data-label="Yuan"></div>
+                <div class="visual-content">
+                    <div class="coin-display">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/1794_Flowing_Hair_Dollar_Obverse.jpg/800px-1794_Flowing_Hair_Dollar_Obverse.jpg" alt="Primeiro Dólar de Prata">
+                        <span>Flowing Hair Dollar (1794)</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="calculadora" class="tool-section">
-            <h2>Simulador de Poder de Compra</h2>
-            <p>Veja quanto US$ 100 de 1913 valeriam nos dias de hoje.</p>
-            <div class="calc-box">
-                <input type="number" id="valor-base" placeholder="Valor em USD">
-                <select id="ano-base">
-                    <option value="1913">1913</option>
-                    <option value="1944">1944</option>
-                    <option value="1971">1971</option>
-                    <option value="2000">2000</option>
-                </select>
-                <button onclick="calcularInflacao()">Calcular Impacto</button>
-                <div id="resultado-calc"></div>
+        <section id="guerra-civil" class="bg-dark">
+            <div class="container">
+                <div class="central-header">
+                    <h2>Sangue, Papel e Tinta Verde</h2>
+                    <p>Como a Guerra de Secessão criou a moeda que conhecemos hoje.</p>
+                </div>
+                <div class="flex-content">
+                    <div class="side-text">
+                        <h4>A Crise de Liquidez de 1861</h4>
+                        <p>Com o início das hostilidades, o governo de Abraham Lincoln enfrentou um problema existencial: como pagar milhões de soldados e fabricar armamentos sem reservas físicas de ouro suficientes? A resposta foi o <strong>Legal Tender Act de 1862</strong>.</p>
+                        <p>Pela primeira vez, o governo emitiu notas que não podiam ser trocadas por metal no curto prazo. Como o verso era impresso com tinta verde barata para evitar falsificações fotográficas (que na época eram em preto e branco), o povo os apelidou de <em>Greenbacks</em>.</p>
+                        <p>Essas notas eram "moeda fiduciária" primitiva. Se a União vencesse as batalhas, o papel valia muito; se perdesse, tornava-se lixo. A vitória do Norte selou não apenas a unidade do país, mas a aceitação nacional do papel-moeda federal sobre as moedas emitidas por bancos privados estaduais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section id="curiosidades" class="grid-section">
+            <div class="container">
+                <h2 class="title-main">20 Fatos Imperdíveis sobre o USD</h2>
+                <div class="curiosities-wrapper">
+                    <div class="curio-card">
+                        <span class="number">01</span>
+                        <h4>Não é Papel</h4>
+                        <p>As notas são compostas por 75% de algodão e 25% de linho. Se você lavar uma nota na máquina de lavar, ela não se desmanchará como o papel comum de celulose.</p>
+                    </div>
+                    <div class="curio-card">
+                        <span class="number">02</span>
+                        <h4>O Rastro de Cocaína</h4>
+                        <p>Estudos indicam que cerca de 90% das notas de dólar em circulação contêm traços de cocaína, devido ao uso em transações de drogas e ao contato em máquinas de contagem automática.</p>
+                    </div>
+                    <div class="curio-card">
+                        <span class="number">03</span>
+                        <h4>A Nota de 100 Mil</h4>
+                        <p>A maior nota já impressa foi a de US$ 100.000 em 1934. Ela nunca circulou entre o público; era usada apenas para transferências entre bancos do Federal Reserve.</p>
+                    </div>
+                    <div class="curio-card">
+                        <span class="number">20</span>
+                        <h4>Vida Útil</h4>
+                        <p>Uma nota de $1 dura em média 6.6 anos, enquanto uma de $100 pode durar até 22.9 anos por ser menos manuseada no dia a dia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="data-center">
+            <div class="container">
+                <h2>O Dólar como Reserva Global</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="58">0</h3>
+                        <p>% das Reservas Globais</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="88">0</h3>
+                        <p>% das Transações de Câmbio</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="100">0</h3>
+                        <p>% Petróleo Cotado em USD</p>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <h3>Cotações Históricas (Poder de Compra)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ano</th>
+                                <th>Evento Econômico</th>
+                                <th>Valor Ajustado ($100)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1913</td><td>Criação do Fed</td><td>$3,150.00</td></tr>
+                            <tr><td>1944</td><td>Bretton Woods</td><td>$1,740.00</td></tr>
+                            <tr><td>1971</td><td>Fim do Lastro Ouro</td><td>$760.00</td></tr>
+                            <tr><td>2000</td><td>Era DotCom</td><td>$180.00</td></tr>
+                            <tr><td>2024</td><td>Pós-Pandemia</td><td>$100.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Sobre</h4>
-                <p>Este portal é um guia definitivo sobre a economia monetária dos EUA e seu impacto global.</p>
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <div class="col">
+                <h4>Federal History Archive</h4>
+                <p>O maior repositório digital sobre a evolução da moeda americana. Dados atualizados para 2026.</p>
             </div>
-            <div class="footer-col">
-                <h4>Links</h4>
+            <div class="col">
+                <h4>Links Úteis</h4>
                 <ul>
-                    <li>Federal Reserve</li>
-                    <li>U.S. Mint</li>
-                    <li>História Econômica</li>
+                    <li><a href="#">Bureau of Engraving</a></li>
+                    <li><a href="#">Federal Reserve Board</a></li>
+                    <li><a href="#">U.S. Treasury</a></li>
                 </ul>
             </div>
         </div>
-        <p class="copyright">&copy; 2024 USD History Project - Todos os direitos reservados.</p>
+        <div class="copyright">
+            <p>&copy; 2026 Projeto Educativo Dólar. Sem fins lucrativos.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
