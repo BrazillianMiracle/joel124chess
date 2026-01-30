@@ -1,107 +1,69 @@
+/**
+ * FEDERAL HISTORY ARCHIVE - CORE ENGINE v5.0
+ * Sistema de Gestão de Interface e Cálculos Econômicos
+ * Totalmente sincronizado com o Design System Premium
+ */
+
 "use strict";
+
+const AppConfig = {
+    scrollThreshold: 80,
+    animationDuration: 2000,
+    observerThreshold: 0.15,
+    // Multiplicadores baseados no poder de compra acumulado (Dados Históricos)
+    inflationMultipliers: {
+        "1913": 31.54, // Ano de fundação do FED
+        "1944": 17.82, // Bretton Woods
+        "1971": 7.63,  // Fim do Padrão Ouro
+        "2000": 1.84,  // Era Moderna
+        "2024": 1.05   // Ajuste Projetado
+    }
+};
 
 const App = {
     init() {
+        console.info("Federal History Engine: Ativa.");
+        
+        // Inicialização de Módulos
         this.setupPreloader();
-        this.handleScroll();
+        this.handleNavigation();
         this.themeSystem();
-        this.animateStats();
-        this.revealOnScroll();
+        this.counterEngine();
+        this.scrollObserverEngine();
+        this.smoothScrollEngine();
+        
+        // Listener Global de Redimensionamento
+        window.addEventListener('resize', () => this.handleResize());
     },
 
+    /**
+     * Gerencia o estado de carregamento e desbloqueio da interface
+     */
     setupPreloader() {
         const loader = document.getElementById('preloader');
+        const body = document.body;
+
         window.addEventListener('load', () => {
             setTimeout(() => {
                 if (loader) {
                     loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
                     setTimeout(() => {
                         loader.style.display = 'none';
-                        document.body.classList.remove('loading');
-                    }, 500);
+                        body.classList.remove('loading');
+                        this.launchHeroAnimations();
+                    }, 800);
                 }
-            }, 1000);
+            }, 1200);
         });
     },
 
-    handleScroll() {
-        const header = document.getElementById('site-header');
-        const progress = document.getElementById('progress-bar');
-
-        window.addEventListener('scroll', () => {
-            // Header Color
-            if (window.scrollY > 50) {
-                header.style.background = "#000";
-            } else {
-                header.style.background = "rgba(0,0,0,0.9)";
-            }
-
-            // Progress Bar
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            if (progress) progress.style.width = scrolled + "%";
-        });
-    },
-
-    themeSystem() {
-        const btn = document.getElementById('btn-theme');
-        if (!btn) return;
-
-        btn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            const isDark = document.body.classList.contains('dark-theme');
-            btn.innerText = isDark ? "MODO CLARO" : "MODO ESCURO";
-        });
-    },
-
-    animateStats() {
-        const stats = document.querySelectorAll('.stat-value');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseFloat(entry.target.innerText);
-                    this.countUp(entry.target, target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        stats.forEach(s => observer.observe(s));
-    },
-
-    countUp(el, target) {
-        let current = 0;
-        const inc = target / 50;
-        const timer = setInterval(() => {
-            current += inc;
-            if (current >= target) {
-                el.innerText = target;
-                clearInterval(timer);
-            } else {
-                el.innerText = Math.ceil(current);
-            }
-        }, 30);
-    },
-
-    revealOnScroll() {
-        const items = document.querySelectorAll('.content-block, .stat-card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
-        }, { threshold: 0.1 });
-
-        items.forEach(item => {
-            item.style.opacity = "0";
-            item.style.transform = "translateY(30px)";
-            item.style.transition = "all 0.8s ease-out";
-            observer.observe(item);
-        });
-    }
-};
-
-document.addEventListener('DOMContentLoaded', () => App.init());
+    /**
+     * Dispara animações iniciais no Hero Section
+     */
+    launchHeroAnimations() {
+        const heroTitle = document.querySelector('.hero-text-content');
+        if (heroTitle) {
+            heroTitle.style.opacity = "1";
+            heroTitle.style.transform = "translateY(0)";
+        }
